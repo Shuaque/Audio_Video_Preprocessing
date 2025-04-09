@@ -24,31 +24,34 @@ wsj0-2mix/
 This script will go through your data directory and automatically generate SCP files listing each file's name and full path.
 '''
 
-def create_scp(scp_file_path, data_dir):
-    
-    with open(scp_file_path, 'w+') as f:
-        # 'w+' opens the file for writing (it overwrites existing content or creates a new file if needed)
-        
-        for root, dirs, files in os.walk(data_dir):
-            files.sort() # sort files to ensure the order is predictable
-            for file in files:
-                f.write(file + ' ' + root + '/' + file) # structure -> "file absolute_path"
-                f.write('\n')
-
-
+def create_scp(scp_root, **data_dir):
+    for k,v in data_dir.items():
+        scp_file = os.path.join(scp_root, f"{k}.scp")
+        with open(scp_file, 'w') as f: #w - opens the file for writing (it overwrites existing content or creates a new file if needed)
+            
+            for root, dirs, files in os.walk(v):
+                                
+                for file in sorted(files): # sort files to ensure the order is predictable
+                    f.write(file + ' ' + root + '/' + file) # structure -> "file absolute_path"
+                    f.write('\n')
+                    
 
 if __name__ == "__main__":
     
-    # Set the paths for your SCP files and the corresponding data directories.
-    
-    # Scp file
-    train_mix_scp = '../tr_mix.scp'
-    train_s1_scp = '../tr_s1.scp'
-    train_s2_scp = '../tr_s2.scp'
-    # Data dir
-    train_mix = '../wsj0-2mix/2speakers/wav8k/min/tr/mix'
-    train_s1 = '../wsj0-2mix/2speakers/wav8k/min/tr/s1'
-    train_s2 = '../wsj0-2mix/2speakers/wav8k/min/tr/s2'
-    
+    #Directory where scp files are saved, end with '/'
+    scp_root = '../data/'
 
-    create_scp(train_mix_scp, train_mix)
+    # Set the paths for your SCP files and the corresponding data directories.
+    create_scp(scp_root, 
+               train_mix = '../wsj0-2mix/2speakers/wav8k/min/tr/mix',
+               train_s1 = '../wsj0-2mix/2speakers/wav8k/min/tr/s1',
+               train_s2 = '../wsj0-2mix/2speakers/wav8k/min/tr/s2',
+               
+               test_mix = '../wsj0-2mix/2speakers/wav8k/min/tt/mix',
+               test_s1 = '../wsj0-2mix/2speakers/wav8k/min/tt/s1',
+               test_s2 = '../wsj0-2mix/2speakers/wav8k/min/tt/s2',
+               
+               cv_mix = '../wsj0-2mix/2speakers/wav8k/min/cv/mix',
+               cv_s1 = '../wsj0-2mix/2speakers/wav8k/min/cv/s1',
+               cv_s2 = '../wsj0-2mix/2speakers/wav8k/min/cv/s2',
+               )
