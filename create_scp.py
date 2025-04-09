@@ -38,36 +38,20 @@ def create_scp(scp_root, **data_dir):
 
 if __name__ == "__main__":
     
-    # #Directory where scp files are saved, end with '/'
-    # scp_root = '../data/'
+    #Directory where scp files are saved, end with '/'
+    scp_root = '../data/'
 
-    # # Set the paths for your SCP files and the corresponding data directories.
-    # create_scp(scp_root, 
-    #            train_mix = '../wsj0-2mix/2speakers/wav8k/min/tr/mix',
-    #            train_s1 = '../wsj0-2mix/2speakers/wav8k/min/tr/s1',
-    #            train_s2 = '../wsj0-2mix/2speakers/wav8k/min/tr/s2',
-               
-    #            test_mix = '../wsj0-2mix/2speakers/wav8k/min/tt/mix',
-    #            test_s1 = '../wsj0-2mix/2speakers/wav8k/min/tt/s1',
-    #            test_s2 = '../wsj0-2mix/2speakers/wav8k/min/tt/s2',
-               
-    #            cv_mix = '../wsj0-2mix/2speakers/wav8k/min/cv/mix',
-    #            cv_s1 = '../wsj0-2mix/2speakers/wav8k/min/cv/s1',
-    #            cv_s2 = '../wsj0-2mix/2speakers/wav8k/min/cv/s2',
-    #            )
-    
-    scp_root = '/workspace/shuak/Conv-TasNet/Conv-TasNet_lightning/data/'
-
+    # Set the paths for your SCP files and the corresponding data directories.
     create_scp(scp_root, 
-               train_mix = '/workspace/shuak/data/wsj0-mix/min/tr/mix',
-               train_s1 = '/workspace/shuak/data/wsj0-mix/min/tr/s1',
-               train_s2 = '/workspace/shuak/data/wsj0-mix/min/tr/s2',
+               train_mix = '../wsj0-2mix/2speakers/wav8k/min/tr/mix',
+               train_s1 = '../wsj0-2mix/2speakers/wav8k/min/tr/s1',
+               train_s2 = '../wsj0-2mix/2speakers/wav8k/min/tr/s2',
                
-               test_mix = '/workspace/shuak/data/wsj0-mix/min/tt/mix',
-               test_s1 = '/workspace/shuak/data/wsj0-mix/min/tt/s1',
-               test_s2 = '/workspace/shuak/data/wsj0-mix/min/tt/s2',
+               test_mix = '../wsj0-2mix/2speakers/wav8k/min/tt/mix',
+               test_s1 = '../wsj0-2mix/2speakers/wav8k/min/tt/s1',
+               test_s2 = '../wsj0-2mix/2speakers/wav8k/min/tt/s2',
                
-               cv_mix = '/workspace/shuak/data/wsj0-mix/min/cv/mix',
-               cv_s1 = '/workspace/shuak/data/wsj0-mix/min/cv/s1',
-               cv_s2 = '/workspace/shuak/data/wsj0-mix/min/cv/s2',
+               cv_mix = '../wsj0-2mix/2speakers/wav8k/min/cv/mix',
+               cv_s1 = '../wsj0-2mix/2speakers/wav8k/min/cv/s1',
+               cv_s2 = '../wsj0-2mix/2speakers/wav8k/min/cv/s2',
                )
